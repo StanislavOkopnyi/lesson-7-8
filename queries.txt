@@ -1,0 +1,36 @@
+
+
+university = University(name="NSU", city="Novosibirsk")
+university.save()
+
+
+gr = Group(id=18603)
+gr.save()
+un = University.objects.get(name="NSU")
+student = Student(first_name="Ivan", second_name="Ivanov", university=un, group=gr)
+
+
+Student.objects.all()
+
+
+import datetime
+Lesson.objects.all().filter(time__time=datetime.time(10, 45))
+
+
+Student.objects.all().filter(first_name__startswith="A")
+
+
+Teacher.objects.get(pk=23)
+
+
+Lesson.objects.all()[:15:2]
+
+
+students = Student.objects.all()
+second_names = [i.second_name for i in students]
+
+
+Group.objects.filter(id__gt=18600)
+
+
+University.objects.all().filter(name__icontains="su")
